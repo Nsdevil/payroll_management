@@ -1,0 +1,110 @@
+{% extends 'core/base.html' %} {% load static %}
+
+<!--  -->
+{% block mdn %}
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css"
+  rel="stylesheet"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+{% endblock %}
+<!--  -->
+{% block title %} Login {% endblock %} {% block content %}
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-blue-100">
+  <table
+    class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bg-blue-100"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <!-- <th scope="col" class="px-6 py-3">Product name</th> -->
+        <th scope="col" class="px-6 py-3">employ_code</th>
+        <th scope="col" class="px-6 py-3">name</th>
+        <th scope="col" class="px-6 py-3">pay_scale</th>
+        <th scope="col" class="px-6 py-3">designation</th>
+        <th scope="col" class="px-6 py-3">no_of_days</th>
+        <th scope="col" class="px-6 py-3">month</th>
+        <th scope="col" class="px-6 py-3">year</th>
+        <th scope="col" class="px-6 py-3">basic_pay</th>
+        <th scope="col" class="px-6 py-3">da_34</th>
+        <th scope="col" class="px-6 py-3">NPA</th>
+        <th scope="col" class="px-6 py-3">DA_203</th>
+        <th scope="col" class="px-6 py-3">ACA</th>
+        <th scope="col" class="px-6 py-3">HRA</th>
+        <th scope="col" class="px-6 py-3">MTA</th>
+        <th scope="col" class="px-6 py-3">NPS_14</th>
+        <th scope="col" class="px-6 py-3">adj_amt</th>
+        <th scope="col" class="px-6 py-3">gross_salary</th>
+        <th scope="col" class="px-6 py-3">total_deduction</th>
+        <th scope="col" class="px-6 py-3">net_payable</th>
+        <th scope="col" class="px-6 py-3">n_p_s_10</th>
+        <th scope="col" class="px-6 py-3">n_p_s_14</th>
+        <th scope="col" class="px-6 py-3">n_p_s</th>
+        <th scope="col" class="px-6 py-3">IT</th>
+        <th scope="col" class="px-6 py-3">PT</th>
+        <th scope="col" class="px-6 py-3">HR</th>
+        <th scope="col" class="px-6 py-3">HR_rec</th>
+        <th scope="col" class="px-6 py-3">adj amount</th>
+        <th scope="col" class="px-6 py-3">other</th>
+        <th scope="col" class="px-6 py-3">net_deduction</th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Edit</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profile in profiles %}
+      <tr
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {{profile.name}}
+          <td class="px-6 py-4">{{profile.employ_code}}</td>
+        </th>
+        <td class="px-6 py-4">{{profile.pay_scale}}</td>
+        <td class="px-6 py-4">{{profile.designation}}</td>
+        <td class="px-6 py-4">{{profile.no_of_days}}</td>
+        <td class="px-6 py-4">{{profile.month}}</td>
+        <td class="px-6 py-4">{{profile.year}}</td>
+        <td class="px-6 py-4">{{profile.basic_pay}}</td>
+        <td class="px-6 py-4">{{profile.da_34}}</td>
+        <td class="px-6 py-4">{{profile.Npa}}</td>
+        <td class="px-6 py-4">{{profile.da_203}}</td>
+        <td class="px-6 py-4">{{profile.aca}}</td>
+        <td class="px-6 py-4">{{profile.hra}}</td>
+        <td class="px-6 py-4">{{profile.mta}}</td>
+        <td class="px-6 py-4">{{profile.nps_14}}</td>
+        <td class="px-6 py-4">{{profile.adj_amt_1}}</td>
+        <td class="px-6 py-4">{{profile.gross_salary}}</td>
+        <td class="px-6 py-4">{{profile.total_deduction}}</td>
+        <td class="px-6 py-4">{{profile.net_payable}}</td>
+        <td class="px-6 py-4">{{profile.n_p_s_10}}</td>
+        <td class="px-6 py-4">{{profile.n_p_s_14}}</td>
+        <td class="px-6 py-4">{{profile.n_p_s}}</td>
+        <td class="px-6 py-4">{{profile.IT}}</td>
+        <td class="px-6 py-4">{{profile.PT}}</td>
+        <td class="px-6 py-4">{{profile.HR}}</td>
+        <td class="px-6 py-4">{{profile.HR_rec}}</td>
+        <td class="px-6 py-4">{{profile.adj_amt_2}}</td>
+        <td class="px-6 py-4">{{profile.other}}</td>
+        <td class="px-6 py-4">{{profile.net_deduction}}</td>
+        <!-- <td class="px-6 py-4">{{profile.professional_tax}}</td> -->
+        <td class="px-6 py-4 text-right">
+          <a
+            href="{% url 'edit_entry' profile.id %}"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >Edit</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

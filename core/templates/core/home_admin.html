@@ -1,0 +1,211 @@
+{% extends 'core/base.html' %} {% load static %}
+
+<!--  -->
+{% block mdn %}
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css"
+  rel="stylesheet"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+{% endblock %}
+<!--  -->
+{% block title %} Login {% endblock %} {% block content %}
+
+<style>
+  :root {
+    --color-dark: black;
+    --color-light: white;
+  }
+
+  .body {
+    /* background-image: url("{% static 'winter_city.jpg' %}"); */
+    background-color: steelblue;
+
+    color: #fff;
+    font-family: "Muli", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .container {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 25%;
+    padding: 20px 40px;
+    border-radius: 5px;
+  }
+
+  .container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+  .container p {
+    text-align: center;
+  }
+
+  .container a {
+    text-decoration: none;
+    color: lightblue;
+  }
+
+  .btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    background: #fff;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    color: #1d1c1c;
+    border: 0;
+    border-radius: 5px;
+    -webkit-box-shadow: 6px 6px 5px 3.5px #1d1c1c;
+    -moz-box-shadow: 6px 6px 5px 3.5px #1d1c1c;
+    box-shadow: 6px 6px 5px 3.5px #1d1c1c;
+  }
+
+  .btn:hover {
+    -webkit-box-shadow: inset 3.5px 3.5px 5px 3.5px #1d1c1c;
+    -moz-box-shadow: inset 3.5px 3.5px 5px 3.5px #1d1c1c;
+    box-shadow: inset 3.5px 3.5px 5px 3.5px #1d1c1c;
+  }
+
+  .btn:focus {
+    outline: 0;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .text {
+    margin-top: 30px;
+  }
+
+  .form-control {
+    position: relative;
+    margin: 20px 0 40px;
+    width: border-box;
+  }
+
+  .form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #fff solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+  }
+
+  .form-control input:focus,
+  .form-control input:valid {
+    outline: 0;
+    border-bottom-color: lightblue;
+  }
+
+  .form-control label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .form-control input:focus + label span,
+  .form-control input:valid + label span {
+    color: lightblue;
+    transform: translateY(-30px);
+  }
+</style>
+<div class="body mr-0">
+  <div class="container mr-0">
+    <h1>Pay Slip</h1>
+
+    <form
+      action=""
+      method="POST"
+      data-month-url="{% url 'ajax_load_month' %}"
+      id="pay_slip"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+          <label
+            for="year"
+            class="block mb-2 text-sm font-medium text-white-900 dark:text-white"
+            >First name</label
+          >
+          <input
+            type="number"
+            id="year"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="2023"
+            name="year"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="month"
+            class="block mb-2 text-sm font-medium text-white-900 dark:text-white"
+            >Last name</label
+          >
+          <input
+            type="text"
+            id="month"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="January"
+            name="month"
+            required
+          />
+        </div>
+      </div>
+
+      <label
+        class="block mb-2 text-sm font-medium text-white-900 dark:text-white"
+        for="file_input"
+        >Upload file</label
+      >
+      <input
+        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 mb-5"
+        id="file_input"
+        name="input_file"
+        type="file"
+      />
+
+      <button class="btn mt-5">Submit</button>
+    </form>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $("#year").change(function () {
+    const url = $("#pay_slip").attr("data-month-url");
+    const yearId = $(this).val();
+    console.log(yearId);
+
+    $.ajax({
+      url: url,
+      data: {
+        year_id: yearId,
+      },
+      success: function (data) {
+        $("#month").html(data);
+      },
+    });
+  });
+</script>
+{% endblock content %}

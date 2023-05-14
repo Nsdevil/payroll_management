@@ -1,0 +1,183 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>name:{{profile.name}}</p>
+    <p>employ_code:{{profile.employ_code}}</p>
+    <p>designation:{{profile.designation}}</p>
+    <p>month:{{month}}</p>
+    <p>year:{{profile.year}}</p>
+    <p>basic_pay:{{profile.basic_pay}}</p>
+    <p>grade_pay:{{profile.grade_pay}}</p>
+    <p>d_a:{{profile.d_a}}</p>
+    <p>house_rent:{{profile.house_rent}}</p>
+    <p>washing_allowance:{{profile.washing_allowance}}</p>
+    <p>conveyance_allowance:{{profile.conveyance_allowance}}</p>
+    <p>gross_salary:{{profile.gross_salary}}</p>
+    <p>n_p_s:{{profile.n_p_s}}</p>
+    <p>g_i_s:{{profile.g_i_s}}</p>
+    <p>l_i_c:{{profile.l_i_c}}</p>
+    <p>house_rent_d:{{profile.house_rent_d}}</p>
+    <p>income_tax:{{profile.income_tax}}</p>
+    <p>professional_tax:{{profile.professional_tax}}</p>
+    <p>total_deduction:{{profile.total_deduction}}</p>
+    <p>net_payable:{{profile.net_payable}}</p>
+  </body>
+</html> -->
+
+{% load static %}
+
+<style>
+  td,
+  th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: large;
+  }
+
+  th {
+    background-color: antiquewhite;
+  }
+  h1 {
+    font-size: 32px;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% for profile in profiles %}
+    <img
+      src="{% static 'header.png' %} "
+      alt="Logo"
+      style="align-self: center; background-color: antiquewhite"
+    />
+    <table
+      style="
+        margin-top: 50px;
+        justify-content: center;
+        margin-left: 20px;
+        border: 1px solid black;
+      "
+    >
+      <tr>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td>Date</td>
+        <td>{{date}}</td>
+      </tr>
+      <tr>
+        <td>Vender ID</td>
+        <td>{{profile.employ_code}}</td>
+        <td>Name</td>
+        <td>{{profile.name}}</td>
+      </tr>
+      <tr>
+        <td>Pay Scale</td>
+        <td>{{profile.pay_scale}}</td>
+        <td>Designation</td>
+        <td>{{profile.designation}}</td>
+      </tr>
+      <tr>
+        <td>No. Of Day</td>
+        <td>{{profile.no_of_days}}</td>
+        <td>Month & Year</td>
+        <td>{{profile.month}} & {{profile.year}}</td>
+      </tr>
+    </table>
+    <br />
+    <table
+      style="
+        margin-top: 50px;
+        justify-content: center;
+        margin-left: 20px;
+        border: 1px solid black;
+      "
+    >
+      <tr>
+        <th>Earning</th>
+        <th><p></p></th>
+        <th>Deduction</th>
+        <th><p></p></th>
+      </tr>
+      <tr>
+        <td>Basic Pay</td>
+        <td>{{profile.basic_pay}}</td>
+        <td>NPS Emp. Cont. @10%</td>
+        <td>{{profile.n_p_s_10}}</td>
+      </tr>
+      <tr>
+        <td>DA on Basic @34%</td>
+        <td>{{profile.da_34}}</td>
+        <td>NPS Govt. Contribution @14%</td>
+        <td>{{profile.n_p_s_14}}</td>
+      </tr>
+      <tr>
+        <td>NPA</td>
+        <td>{{profile.Npa}}</td>
+        <td>Income Tax</td>
+        <td>{{profile.IT}}</td>
+      </tr>
+      <tr>
+        <td>DA on NPA @203%</td>
+        <td>{{profile.da_34}}</td>
+        <td>Professional Tax</td>
+        <td>{{profile.PT}}</td>
+      </tr>
+      <tr>
+        <td>ACA</td>
+        <td>{{profile.aca}}</td>
+        <td>HR</td>
+        <td>{{profile.HR}}</td>
+      </tr>
+      <tr>
+        <td>HRA</td>
+        <td>{{profile.hra}}</td>
+        <td>Other Amt.</td>
+        <td>{{profile.adj_amt_1}}</td>
+      </tr>
+      <tr>
+        <td>MTA</td>
+        <td>{{profile.mta}}</td>
+        <td>Other Amt.</td>
+        <td>{{profile.other}}</td>
+      </tr>
+      <tr>
+        <td>Adj. Amt.</td>
+        <td>{{profile.adj_amt_2}}</td>
+        <td><p></p></td>
+        <td><p></p></td>
+      </tr>
+      <tr>
+        <td>Gross Salary</td>
+        <td>{{profile.gross_salary}}</td>
+        <td>Total Deduction</td>
+        <td>{{profile.total_deduction}}</td>
+      </tr>
+      <tr>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td>Net Payble</td>
+        <td>{{profile.net_payable}}</td>
+      </tr>
+    </table>
+    <h1 style="font-size: x-large; margin-bottom: 165px; align-items: baseline">
+      {{word}}
+    </h1>
+    <p style="margin: 0; padding: 0">
+      This is computer generated statement, hence no signature required
+    </p>
+    {% endfor %}
+  </body>
+</html>

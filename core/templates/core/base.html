@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    {% block mdn %} {% endblock %}
+    
+<style>
+  .rounded-xl {
+  border-radius: 0.75rem;
+}
+</style>
+
+    <!-- <link rel="stylesheet" href="{% static 'main.min.css' %}" /> -->
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body class="bg-slate-100 ">
+  <!-- <body class="bg-slate-100 overflow-hidden"> -->
+    {% if request.user.is_authenticated %}
+    <nav class="py-6 flex justify-between px-6 bg-blue-900">
+      
+      <a class="text-white" href="/">
+        LOGO
+      </a>
+      <div class="space-x-4">
+        <a class="py-4 px-6 text-white font-semibold">
+           WELCOME,   {{request.user.first_name}} {{request.user.last_name}}
+         </a>
+        {% if request.user.is_staff %}
+      <a
+            href="{% url 'create_user' %}"
+            class="py-4 px-6 bg-blue-700 rounded-xl text-white"
+            >Create User</a
+          >
+          <a
+            href="{% url 'dashboard_admin' %}"
+            class="py-4 px-6 bg-blue-700 rounded-xl text-white"
+            >Admin Dashboard</a
+          >
+          <a
+          href="{% url 'home_admin' %}"
+          class="py-4 px-6 bg-blue-700 rounded-xl text-white"
+          >Admin Home</a
+        >
+    {% endif %}
+       
+        
+          <a
+            href="{% url 'logout' %}"
+            class="py-4 px-6 bg-blue-700 rounded-xl text-white"
+            >Logout</a
+          >
+        </div>
+      </div>
+    </nav>
+    {% endif %}
+    
+    {% if messages %}
+    <div class="py-6 px-6">
+      {% for message in messages %}
+      <div class="py-4 px-4 bg-teal-300 rounded-xl text-white">{{message}}</div>
+      {% endfor %}
+    </div>
+    {% endif %} {% block content %}{% endblock %}
+  </body>
+</html>
+<!-- npx tailwindcss -i ./static/main.css -o ./static/main.min.css --watch -->
