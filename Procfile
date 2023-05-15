@@ -1,1 +1,1 @@
-web: gunicorn payroll_management.wsgi --logo-file -
+web: gunicorn payroll_management.wsgi --logo-file = -
