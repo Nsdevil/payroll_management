@@ -19,11 +19,8 @@
       class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
     >
       <tr>
-        <!-- <th scope="col" class="px-6 py-3">Product name</th> -->
-
         <th scope="col" class="px-6 py-4">month</th>
         <th scope="col" class="px-6 py-4">year</th>
-
         <th scope="col" class="px-6 py-4">IS Visible</th>
         <th scope="col" class="px-6 py-4">Make Visible</th>
         <th scope="col" class="px-6 py-4">View</th>
@@ -38,14 +35,14 @@
         <td class="px-6 py-4">{{file.year}}</td>
 
         <td class="px-6 py-4">{{file.is_converted}}</td>
-        <td class="px-6 py-4 text-right">
+        <td class="px-6 py-4">
           <a
             href="{% url 'convert_to' file.id %}"
             class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >Make</a
           >
         </td>
-        <td class="px-6 py-4 text-right">
+        <td class="px-6 py-4">
           <a
             href="{% url 'dashboard_admin1' file.id %}"
             class="font-medium text-blue-600 dark:text-blue-500 hover:underline"

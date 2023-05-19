@@ -123,11 +123,15 @@
     color: lightblue;
     transform: translateY(-30px);
   }
+  footer {
+    text-align: left;
+    margin-top: 50px;
+  }
 </style>
 <div class="body">
   <div class="container">
     <h1>Account Login</h1>
-    <p>Hello Developer, Welcome Back!</p>
+    <p>Hello Doctor, Welcome Back!</p>
     <form action="" method="POST">
       {% csrf_token %}
       <div class="form-control">
@@ -146,6 +150,7 @@
       </p>
     </form>
   </div>
+  <footer class="">created by : Nishank Shakyawar</footer>
 </div>
 <script>
   const labels = document.querySelectorAll(".form-control label");

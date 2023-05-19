@@ -21,9 +21,8 @@
     {% if request.user.is_authenticated %}
     <nav class="py-6 flex justify-between px-6 bg-blue-900">
       
-      <a class="text-white" href="/">
-        LOGO
-      </a>
+      <img src="{% static 'logo.png' %} " alt="Logo" />
+
       <div class="space-x-4">
         <a class="py-4 px-6 text-white font-semibold">
            WELCOME,   {{request.user.first_name}} {{request.user.last_name}}
