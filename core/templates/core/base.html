@@ -16,14 +16,14 @@
     <!-- <link rel="stylesheet" href="{% static 'main.min.css' %}" /> -->
     <title>{% block title %}{% endblock %}</title>
   </head>
-  <body class="bg-slate-100 ">
+  <body class="bg-slate-100 " >
   <!-- <body class="bg-slate-100 overflow-hidden"> -->
     {% if request.user.is_authenticated %}
-    <nav class="py-6 flex justify-between px-6 bg-blue-900">
+    <nav style="margin: 0;padding: 0;" class="py-6 flex justify-between px-6 bg-blue-900">
       
-      <img src="{% static 'logo.png' %} " alt="Logo" />
+      <img style="height: 100px; width: 100px; margin: 0;padding: 0;" src="{% static 'logo.png' %} " alt="Logo" />
 
-      <div class="space-x-4">
+      <div style="margin-top: 30px;" class="space-x-4">
         <a class="py-4 px-6 text-white font-semibold">
            WELCOME,   {{request.user.first_name}} {{request.user.last_name}}
          </a>

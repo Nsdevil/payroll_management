@@ -31,6 +31,8 @@
 </html> -->
 
 {% load static %}
+{% load encode_static %}
+
 
 <style>
   td,
@@ -63,7 +65,8 @@
       alt="Logo"
       style="align-self: center; background-color: antiquewhite"
     /> -->
-    <img src="/static/header\ png" alt="Logo" />
+    <img alt="IMAGE" src="{% encode_static %}">
+    <!-- <img src="/static/header.png" alt="Logo" /> -->
 
     <table
       style="
