@@ -7,7 +7,7 @@ register = template.Library()
 
 @register.simple_tag
 def encode_static(encodign='base64', file_type='image'):
-  path=os.path.join(BASE_DIR, 'static\header.png')
+  path=os.path.join(BASE_DIR, 'static/header.png')
   try:
     file_path = find_static_file(path)
     ext = file_path.split('.')[-1]

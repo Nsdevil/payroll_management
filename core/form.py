@@ -21,4 +21,3 @@ class CreateUserForm(UserCreationForm):
         model=User
         fields = ['first_name','last_name','username','email','is_staff','password1','password2']
         # fields = '__all__'
-        print('dield',fields)

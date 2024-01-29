@@ -36,7 +36,7 @@
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #3f23ad;
+    background: #223976;
     position: relative;
     display: flex;
     justify-content: center;
@@ -59,7 +59,7 @@
   }
   .login_btn {
     width: 100%;
-    background: #33ccff !important;
+    background: #1A56DB !important;
     color: white !important;
   }
   .login_btn:focus {
@@ -70,7 +70,7 @@
     padding: 0 2rem;
   }
   .input-group-text {
-    background: #f7ba5b !important;
+    background: #1A56DB !important;
     color: white !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
@@ -135,12 +135,19 @@
               </div>
               {{form.password2}}
             </div>
-            <div>
+            <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
               {{form.is_staff}}
-              <label for="default-checkbox" class="text-white"
+              <label style="justify-content: center; align-self: center;" for="default-checkbox" class="text-white"
                 >{{form.is_staff.label}}</label
               >
             </div>
+
+            <style>
+              #id_is_staff{
+                
+                width: 50px;
+              }
+            </style>
 
             <div class="d-flex justify-content-center mt-3 login_container">
               <input class="btn login_btn" type="submit" value="Create User" />
